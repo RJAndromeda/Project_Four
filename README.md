@@ -18,7 +18,7 @@ The first source of data was the Bureau of Meteorology's daily weather observati
 
 A monthly weather record includes:
 
-![](D:\Bootcamp\Classwork\Project_Four\BOM.png)
+![](https://github.com/RJAndromeda/Project_Four/blob/main/Images/BOM.png)
 
 (Screen snapshot taken from: http://www.bom.gov.au/climate/dwo/202310/html/IDCJDW3005.202310.shtml)
 
@@ -61,7 +61,7 @@ An initial assessment of the data was undertaken in  Tableau: https://public.tab
 
 
 
-![](D:\Bootcamp\Classwork\Project_Four\Fig4.png)
+![](https://github.com/RJAndromeda/Project_Four/blob/main/Images/Fig4.png)
 
 There were significant amounts of dummy variables in the data once the categorical columns had been transformed, and the original intent to include three different weather stations as a snapshot of Victoria quickly showed to be causing issues with modelling the data. 
 
@@ -87,7 +87,7 @@ The data was then combined in python using an inner join on Date/incident_date, 
 
 A quick view of the incident count, maximum temperature and maximum wind gust shows similarities in underlying structures.  There are more call outs during summer when the temperature is high, for example.   
 
-![](D:\Bootcamp\Classwork\Project_Four\Comb_1.png)
+![](https://github.com/RJAndromeda/Project_Four/blob/main/Images/Comb_1.png)
 
 
 
@@ -131,7 +131,7 @@ To test against another regression model, SciKitLearn's Linear Regression was al
 
 The model was split into training and testing, and the X-train data was scaled using Standard Scaler, and model fitted and run.  
 
-![](D:\Bootcamp\Classwork\Project_Four\Fig2.png)
+![](https://github.com/RJAndromeda/Project_Four/blob/main/Images/Fig2.png)
 
 **Results**
 
@@ -141,7 +141,7 @@ While this shows that the data is not linear, it does show that the model achiev
 
 The residuals continue this story:
 
-![](D:\Bootcamp\Classwork\Project_Four\Fig_3.png)
+![](https://github.com/RJAndromeda/Project_Four/blob/main/Images/Fig_3.png)
 
 While a perfect fit for the residuals would be a bell-shape peaking at 0, this is almost, but not quite there. The two outer points again emphasise the need to explore what the extreme instances were that could account for it. August 2020 saw large storm damage in the central district, at a time when Fire services would not be expecting peak demand as is usual in the later summer months.
 
@@ -157,17 +157,39 @@ While a perfect fit for the residuals would be a bell-shape peaking at 0, this i
 
 •-Using the cross-product has shown the non-linearity of the problem - the analysis of exactly which relative proportions in the cross-product term is left for future work. 
 
+**Further study**
+
+The data is relatively rich, and would bear more investigation into the interplay of different factors influencing callout rates.
+
+Changing this to a classification problem, by breaking the data down into a rating system of risk of additional callouts would definitely be of use, so that the CFA could have their own internal warning systems for likely conditions for the need for more volunteers.
+
+
+
+A breakdown by Fire district could also help to refine the model for local weather conditions. Part of the background analysis of the three stations did indicate a difference in weather between one of the three chosen, in the furthest removed Eastern location (Wangaratta). This is in line with the way weather behaves over the state, so a more in-depth analysis could be undertaken there.
+
+Obviously, more years of data would also be able to see whether la nina and el nino weather patterns see different callout volumes.
+
+
+
 
 
 **Sources and Acknowledgements**
 
-Daily observations are available from http://www.bom.gov.au/climate/data. Copyright Commonwealth of Australia, Bureau of Meteorology, and archives of the National Library of Victoria's Digital repository, TROVE, available at :  (https://webarchive.nla.gov.au, see specific examples:https://webarchive.nla.gov.au/awa/20230627014220). No data scraping techniques were used to collect this information: it was purely human mechanical actions. And many of them.
+Daily observations are available from http://www.bom.gov.au/climate/data. Copyright Commonwealth of Australia, Bureau of Meteorology, and archives of the National Library of Victoria's Digital repository, TROVE, available at :  (https://webarchive.nla.gov.au, see specific examples:https://webarchive.nla.gov.au/awa/20230627014220). No data scraping techniques were used to collect this information: it was purely human mechanical actions. And many of hundreds of them.
 
-https://discover.data.vic.gov.au/dataset/cfa-incident-responses
+CFA Incident dataset was downloaded from the Victorian Government Discover Data portal: https://discover.data.vic.gov.au/dataset/cfa-incident-responses
 
-A breakdown of different types of regression: https://www.analyticsvidhya.com/blog/2022/01/different-types-of-regression-models/
 
-https://www.statsmodels.org/stable/index.html
+
+I found background information on different types of regression: https://www.analyticsvidhya.com/blog/2022/01/different-types-of-regression-models/ and https://www.geeksforgeeks.org/ml-linear-regression/, and from SciKit Learn itself: https://scikit-learn.org/stable/search.html?q=non+linear+regression+models
+
+More information about
+
+stats models was gleaned from: https://www.statsmodels.org/stable/index.html
+
+matplotlib: https://pandas.pydata.org/pandas-docs/version/0.13.1/visualization.html
+
+
 
 
 
